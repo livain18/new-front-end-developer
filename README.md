@@ -1,4 +1,4 @@
-# New Front-End Developer testttt
+# New Front-End Developer
 
 > Host your version of this repository on [Github](https://github.com/), [Bitbucket](https://bitbucket.org/), [Gitlab](https://gitlab.com/) or another platform. Make sure it's publicly available. Share the link to the finished exercise.
 

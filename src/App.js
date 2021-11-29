@@ -1,6 +1,8 @@
+import React from 'react';
 import { GraphQLClient, ClientContext } from 'graphql-hooks';
 import Container from './Container';
-import Logo from './Logo';
+import Logo from './Components/Logo';
+import PokemonPicker from './Components/PokemonPicker.js'
 
 const client = new GraphQLClient({
   url: process.env.REACT_APP_POKE_ENDPOINT,
@@ -12,9 +14,15 @@ export default function App() {
       <>
         <Container>
           <Logo />
-          {/* Build your app here */}
+          <PokemonPicker />
         </Container>
       </>
     </ClientContext.Provider>
   );
 }
+
+
+
+
+
+

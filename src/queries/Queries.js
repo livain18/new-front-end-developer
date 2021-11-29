@@ -22,6 +22,11 @@ export const POKEMON_EXTRA_QUERY = `query Pokemons($name: String!) {
       abilities {
         name
       }
+      moves {
+        name
+        type
+        learnMethod
+      }
       stats {
         name
         value

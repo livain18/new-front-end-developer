@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styles from '../styles/PokemonApp.module.css'
 import PokemonList from './PokemonList';
 import DisplayPokemon from './DisplayPokemon';
@@ -14,11 +14,11 @@ export default function PokemonPicker() {
         }
     });
 
-    if (loading) return 'Loading...';
-    if (error || !data) return 'Something Bad Happened';
+    if (loading) return <p>Loading...</p>;
+    if (error || !data) return <p>Something Bad Happened</p>;
 
     const filterFunction = ({ name }) => {
-        return name.includes(searchString) //True or false
+        return name.includes(searchString) //True or false for each element of array
     }
 
     const filtered = searchString !== "" ? data.Pokemons.filter(filterFunction) : data.Pokemons;
@@ -33,8 +33,10 @@ export default function PokemonPicker() {
                 value={searchString}
                 onInput={(event) => setSearchString(event.target.value)}
             />
-            <PokemonList list={filtered} />
-            <DisplayPokemon searchString={singleResultName} />
+            <div className={styles.flex}>
+                <PokemonList list={filtered} />
+                <DisplayPokemon searchString={singleResultName} />
+            </div>
         </>
     );
 }

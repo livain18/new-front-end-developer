@@ -67,5 +67,30 @@ button {
 }
 
 .movesList {
-  /* float: right; */
+}
+
+.activeString {
+  text-decoration: underline;
+}
+
+.active {
+  display: inline-block;
+}
+
+.notActive {
+  display: none;
+}
+
+.selectedPokemons {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.selectPokEmpty {
+  width: 15%;
+  max-width: 200px;
+  height: 500px;
+  background-color: cadetblue;
 }

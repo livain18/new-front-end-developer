@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import styles from '../styles/PokemonApp.module.css'
+import styles from '../../styles/PokemonApp.module.css'
 import PokemonList from './PokemonList';
 import DisplayPokemon from './DisplayPokemon';
 
 import { useQuery } from 'graphql-hooks'
-import { LIST } from '../queries/Queries';
+import { LIST } from '../../queries/Queries';
 
 export default function PokemonPicker() {
     const [searchString, setSearchString] = useState("");

@@ -6,7 +6,7 @@ import DisplayPokemon from './DisplayPokemon';
 import { useQuery } from 'graphql-hooks'
 import { LIST } from '../../queries/Queries';
 
-export default function PokemonPicker() {
+export default function PokemonPicker(props) {
     const [searchString, setSearchString] = useState("");
     const { loading, error, data } = useQuery(LIST, {
         variables: {
@@ -24,6 +24,14 @@ export default function PokemonPicker() {
     const filtered = searchString !== "" ? data.Pokemons.filter(filterFunction) : data.Pokemons;
     const singleResultName = filtered.length === 1 ? filtered[0].name : "";
 
+    const clickHandler = (e, getPokemonInfo) => {
+        props.handleAddNewUser(singleResultName, getPokemonInfo);
+    }
+
+    // const passedPokemonInfo = () => {
+
+    // }
+
     return (
         <>
             <input
@@ -35,7 +43,7 @@ export default function PokemonPicker() {
             />
             <div className={styles.flex}>
                 <PokemonList list={filtered} />
-                <DisplayPokemon searchString={singleResultName} />
+                <DisplayPokemon searchString={singleResultName} clickHandler={clickHandler} />
             </div>
         </>
     );

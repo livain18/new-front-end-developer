@@ -40,15 +40,28 @@ export default function DisplayPokemon(props) {
     }
 
     function changeMoveType(movesType) {
-        // document.querySelector(movesTypeList).classList.remove(styles.active);
-        // document.querySelector(movesType).classList.add(styles.active);
         setMovesTypeList(movesType);
-
-        // let elementStringPrev = document.getElementsById(movesTypeList);
-        // let elementString = document.getElementsById(movesType);
-        // elementStringPrev.classList.contains('activeString') && elementString.classList.remove(styles.activeString);
-        // elementString.classList.add(styles.activeString);
     }
+
+    const getPokemonInfo = () => {
+        console.log('%c 🍇 Pokemon.types: ', 'font-size:20px;background-color: #FFDD4D;color:#fff;', Pokemon.types[0].name);
+        const pokemonInfo = {
+            type: Pokemon.types[0].name,
+            img: Pokemon.image,
+            abilities: Pokemon.abilities
+        }
+        // const type = Pokemon.types,
+        //     img = Pokemon.image,
+        //     abilities = Pokemon.abilities
+
+        // setPokemonInfo([type, img, abilities])
+        return pokemonInfo;
+    }
+
+    const onClick = (e) => {
+        props.clickHandler(e, getPokemonInfo());
+    }
+
     return (
         <>
             <div className={`${styles.width50}`}>
@@ -63,7 +76,7 @@ export default function DisplayPokemon(props) {
                     <ul className={styles.abilities}>
                         {Pokemon.abilities.map((element, i) => <li key={i}>{`${element.name}`}</li>)}
                     </ul>
-                    <button className={styles.btnSavePokemon}>Save Pokemon</button>
+                    <button className={styles.btnSavePokemon} onClick={onClick}>Save Pokemon</button>
                 </div>
                 <div className={`${styles.statsFlex} ${styles.flexWrap} ${styles.width75}`}>
                     <Stats />

@@ -8,6 +8,17 @@ export default function PokemonSelection(props) {
 
 
     return (
-        <div className={styles.selectedPokemons}>{selectedPokemon}</div>
+        <>
+            <div className={styles.selectedPokemons}>{selectedPokemon}</div>
+            <div style={{ display: "flex" }}>
+                {props.squad.map(obj =>
+                    <div key={obj.id}>
+                        <p>{obj.name}</p>
+                        <p>{obj.type}</p>
+                        <img src={obj.img} />
+                    </div>
+                )}
+            </div>
+        </>
     )
 }

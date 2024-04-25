@@ -4,7 +4,7 @@ export default function Logo(props) {
   return (
     <img
       {...props}
-      alt="test"
+      alt="blub windows change"
       className={styles.root}
       src={process.env.PUBLIC_URL + '/logo.png'}
     />

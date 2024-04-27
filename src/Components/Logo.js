@@ -4,7 +4,7 @@ export default function Logo(props) {
   return (
     <img
       {...props}
-      alt="blub linux branch change second changeeeee"
+      alt="blub linux branch change second changeeeee okeee"
       className={styles.root}
       src={process.env.PUBLIC_URL + '/logo.png'}
     />
